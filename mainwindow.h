@@ -2,7 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "ComplexNumber.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -30,8 +29,12 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    struct
+    {
+        QString real;
+        QString imag;
+    } num_1, num_2;
 
-    ComplexNumber num_1, num_2;
     QString operation;
 
     //methods for several operations

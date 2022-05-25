@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>510</width>
-    <height>550</height>
+    <width>440</width>
+    <height>543</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,14 +18,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>510</width>
-    <height>550</height>
+    <width>440</width>
+    <height>543</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1000</width>
-    <height>1000</height>
+    <width>440</width>
+    <height>543</height>
    </size>
   </property>
   <property name="cursor">
@@ -44,87 +44,13 @@ background-color: rgb(94, 92, 100);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
-    <item row="0" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QLabel" name="labelNumbers">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>490</width>
-          <height>110</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>490</width>
-          <height>110</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Comfortaa</family>
-          <pointsize>40</pointsize>
-          <weight>3</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="autoFillBackground">
-         <bool>false</bool>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(61, 56, 70);
-font: 25 40pt &quot;Comfortaa&quot;;
-border-radius: 54%
-</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::NoFrame</enum>
-        </property>
-        <property name="text">
-         <string>0</string>
-        </property>
-        <property name="textFormat">
-         <enum>Qt::MarkdownText</enum>
-        </property>
-        <property name="scaledContents">
-         <bool>false</bool>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-        <property name="wordWrap">
-         <bool>true</bool>
-        </property>
-        <property name="margin">
-         <number>10</number>
-        </property>
-        <property name="indent">
-         <number>10</number>
-        </property>
-        <property name="buddy">
-         <cstring>labelNumbers</cstring>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
     <item row="1" column="0">
      <layout class="QGridLayout" name="gridLayout">
       <property name="sizeConstraint">
        <enum>QLayout::SetNoConstraint</enum>
       </property>
-      <item row="1" column="0">
-       <widget class="QPushButton" name="button_7">
+      <item row="2" column="0">
+       <widget class="QPushButton" name="button_4">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -161,223 +87,7 @@ QPushButton:hover{
 }</string>
         </property>
         <property name="text">
-         <string>7</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="3">
-       <widget class="QPushButton" name="buttonPlus">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="contextMenuPolicy">
-         <enum>Qt::DefaultContextMenu</enum>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-	font: 25 25pt &quot;Comfortaa&quot;;
-	background-color: rgb(61, 56, 70);
-	color:rgb(255,255,255);
-	border-radius: 35%;
-}
-QPushButton:pressed{
-	background-color:rgb(125,125,125);
-}
-QPushButton:hover{
-	background-color:rgb(125,125,125);
-}</string>
-        </property>
-        <property name="text">
-         <string>+</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="3">
-       <widget class="QPushButton" name="buttonMinus">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="contextMenuPolicy">
-         <enum>Qt::DefaultContextMenu</enum>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-	font: 25 25pt &quot;Comfortaa&quot;;
-	background-color: rgb(61, 56, 70);
-	color:rgb(255,255,255);
-	border-radius: 35%;
-}
-QPushButton:pressed{
-	background-color:rgb(125,125,125);
-}
-QPushButton:hover{
-	background-color:rgb(125,125,125);
-}</string>
-        </property>
-        <property name="text">
-         <string>-</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="2">
-       <widget class="QPushButton" name="button_6">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="contextMenuPolicy">
-         <enum>Qt::DefaultContextMenu</enum>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-	font: 25 25pt &quot;Comfortaa&quot;;
-	background-color: rgb(61, 56, 70);
-	color:rgb(255,255,255);
-	border-radius: 35%;
-}
-QPushButton:pressed{
-	background-color:rgb(125,125,125);
-}
-QPushButton:hover{
-	background-color:rgb(125,125,125);
-}</string>
-        </property>
-        <property name="text">
-         <string>6</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="QPushButton" name="button_2">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="contextMenuPolicy">
-         <enum>Qt::DefaultContextMenu</enum>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-	font: 25 25pt &quot;Comfortaa&quot;;
-	background-color: rgb(61, 56, 70);
-	color:rgb(255,255,255);
-	border-radius: 35%;
-}
-QPushButton:pressed{
-	background-color:rgb(125,125,125);
-}
-QPushButton:hover{
-	background-color:rgb(125,125,125);
-}</string>
-        </property>
-        <property name="text">
-         <string>2</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QPushButton" name="button_5">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="contextMenuPolicy">
-         <enum>Qt::DefaultContextMenu</enum>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-	font: 25 25pt &quot;Comfortaa&quot;;
-	background-color: rgb(61, 56, 70);
-	color:rgb(255,255,255);
-	border-radius: 35%;
-}
-QPushButton:pressed{
-	background-color:rgb(125,125,125);
-}
-QPushButton:hover{
-	background-color:rgb(125,125,125);
-}</string>
-        </property>
-        <property name="text">
-         <string>5</string>
+         <string>4</string>
         </property>
        </widget>
       </item>
@@ -423,8 +133,8 @@ QPushButton:hover{
         </property>
        </widget>
       </item>
-      <item row="0" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-       <widget class="QPushButton" name="buttonDEL">
+      <item row="4" column="0">
+       <widget class="QPushButton" name="button_0">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -461,7 +171,181 @@ QPushButton:hover{
 }</string>
         </property>
         <property name="text">
-         <string>DEL</string>
+         <string>0</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QPushButton" name="button_i">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	font: 25 25pt &quot;Comfortaa&quot;;
+	background-color: rgb(61, 56, 70);
+	color:rgb(255,255,255);
+	border-radius: 35%;
+}
+QPushButton:pressed{
+	background-color:rgb(125,125,125);
+}
+QPushButton:hover{
+	background-color:rgb(125,125,125);
+}</string>
+        </property>
+        <property name="text">
+         <string>i</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="button_5">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	font: 25 25pt &quot;Comfortaa&quot;;
+	background-color: rgb(61, 56, 70);
+	color:rgb(255,255,255);
+	border-radius: 35%;
+}
+QPushButton:pressed{
+	background-color:rgb(125,125,125);
+}
+QPushButton:hover{
+	background-color:rgb(125,125,125);
+}</string>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QPushButton" name="buttonMult">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	font: 25 25pt &quot;Comfortaa&quot;;
+	background-color: rgb(61, 56, 70);
+	color:rgb(255,255,255);
+	border-radius: 35%;
+}
+QPushButton:pressed{
+	background-color:rgb(125,125,125);
+}
+QPushButton:hover{
+	background-color:rgb(125,125,125);
+}</string>
+        </property>
+        <property name="text">
+         <string>×</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="button_7">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	font: 25 25pt &quot;Comfortaa&quot;;
+	background-color: rgb(61, 56, 70);
+	color:rgb(255,255,255);
+	border-radius: 35%;
+}
+QPushButton:pressed{
+	background-color:rgb(125,125,125);
+}
+QPushButton:hover{
+	background-color:rgb(125,125,125);
+}</string>
+        </property>
+        <property name="text">
+         <string>7</string>
         </property>
        </widget>
       </item>
@@ -510,132 +394,6 @@ QPushButton:hover{
           <width>16</width>
           <height>16</height>
          </size>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QPushButton" name="button_1">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="contextMenuPolicy">
-         <enum>Qt::DefaultContextMenu</enum>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-	font: 25 25pt &quot;Comfortaa&quot;;
-	background-color: rgb(61, 56, 70);
-	color:rgb(255,255,255);
-	border-radius: 35%;
-}
-QPushButton:pressed{
-	background-color:rgb(125,125,125);
-}
-QPushButton:hover{
-	background-color:rgb(125,125,125);
-}</string>
-        </property>
-        <property name="text">
-         <string>1</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QPushButton" name="button_4">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="contextMenuPolicy">
-         <enum>Qt::DefaultContextMenu</enum>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-	font: 25 25pt &quot;Comfortaa&quot;;
-	background-color: rgb(61, 56, 70);
-	color:rgb(255,255,255);
-	border-radius: 35%;
-}
-QPushButton:pressed{
-	background-color:rgb(125,125,125);
-}
-QPushButton:hover{
-	background-color:rgb(125,125,125);
-}</string>
-        </property>
-        <property name="text">
-         <string>4</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QPushButton" name="button_9">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="contextMenuPolicy">
-         <enum>Qt::DefaultContextMenu</enum>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-	font: 25 25pt &quot;Comfortaa&quot;;
-	background-color: rgb(61, 56, 70);
-	color:rgb(255,255,255);
-	border-radius: 35%;
-}
-QPushButton:pressed{
-	background-color:rgb(125,125,125);
-}
-QPushButton:hover{
-	background-color:rgb(125,125,125);
-}</string>
-        </property>
-        <property name="text">
-         <string>9</string>
         </property>
        </widget>
       </item>
@@ -723,11 +481,54 @@ QPushButton:hover{
         </property>
        </widget>
       </item>
-      <item row="1" column="3">
-       <widget class="QPushButton" name="buttonMult">
+      <item row="4" column="3">
+       <widget class="QPushButton" name="buttonEqual">
         <property name="enabled">
          <bool>false</bool>
         </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>70</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	background-color: rgb(255, 147, 48);
+	font: 25 25pt &quot;Comfortaa&quot;;
+
+	color:rgb(255,255,255);
+	border-radius: 35%;
+}
+QPushButton:pressed{
+	background-color: rgb(255, 163, 72);
+}
+QPushButton:hover{
+	background-color: rgb(255, 163, 72);
+}</string>
+        </property>
+        <property name="text">
+         <string>=</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="button_2">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -764,7 +565,7 @@ QPushButton:hover{
 }</string>
         </property>
         <property name="text">
-         <string>×</string>
+         <string>2</string>
         </property>
        </widget>
       </item>
@@ -813,93 +614,6 @@ QPushButton:hover{
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
-       <widget class="QPushButton" name="button_0">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>500</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="contextMenuPolicy">
-         <enum>Qt::DefaultContextMenu</enum>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-	font: 25 25pt &quot;Comfortaa&quot;;
-	background-color: rgb(61, 56, 70);
-	color:rgb(255,255,255);
-	border-radius: 35%;
-}
-QPushButton:pressed{
-	background-color:rgb(125,125,125);
-}
-QPushButton:hover{
-	background-color:rgb(125,125,125);
-}</string>
-        </property>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1">
-       <widget class="QPushButton" name="button_i">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>101</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="contextMenuPolicy">
-         <enum>Qt::DefaultContextMenu</enum>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-	font: 25 25pt &quot;Comfortaa&quot;;
-	background-color: rgb(61, 56, 70);
-	color:rgb(255,255,255);
-	border-radius: 35%;
-}
-QPushButton:pressed{
-	background-color:rgb(125,125,125);
-}
-QPushButton:hover{
-	background-color:rgb(125,125,125);
-}</string>
-        </property>
-        <property name="text">
-         <string>i</string>
-        </property>
-       </widget>
-      </item>
       <item row="4" column="2">
        <widget class="QPushButton" name="buttonDot">
         <property name="sizePolicy">
@@ -942,11 +656,8 @@ QPushButton:hover{
         </property>
        </widget>
       </item>
-      <item row="4" column="3">
-       <widget class="QPushButton" name="buttonEqual">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
+      <item row="2" column="2">
+       <widget class="QPushButton" name="button_6">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -955,7 +666,7 @@ QPushButton:hover{
         </property>
         <property name="minimumSize">
          <size>
-          <width>70</width>
+          <width>101</width>
           <height>70</height>
          </size>
         </property>
@@ -970,21 +681,301 @@ QPushButton:hover{
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{
-	background-color: rgb(255, 147, 48);
 	font: 25 25pt &quot;Comfortaa&quot;;
-
+	background-color: rgb(61, 56, 70);
 	color:rgb(255,255,255);
 	border-radius: 35%;
 }
 QPushButton:pressed{
-	background-color: rgb(255, 163, 72);
+	background-color:rgb(125,125,125);
 }
 QPushButton:hover{
-	background-color: rgb(255, 163, 72);
+	background-color:rgb(125,125,125);
 }</string>
         </property>
         <property name="text">
-         <string>=</string>
+         <string>6</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="button_1">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	font: 25 25pt &quot;Comfortaa&quot;;
+	background-color: rgb(61, 56, 70);
+	color:rgb(255,255,255);
+	border-radius: 35%;
+}
+QPushButton:pressed{
+	background-color:rgb(125,125,125);
+}
+QPushButton:hover{
+	background-color:rgb(125,125,125);
+}</string>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="button_9">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	font: 25 25pt &quot;Comfortaa&quot;;
+	background-color: rgb(61, 56, 70);
+	color:rgb(255,255,255);
+	border-radius: 35%;
+}
+QPushButton:pressed{
+	background-color:rgb(125,125,125);
+}
+QPushButton:hover{
+	background-color:rgb(125,125,125);
+}</string>
+        </property>
+        <property name="text">
+         <string>9</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="3">
+       <widget class="QPushButton" name="buttonPlus">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	font: 25 25pt &quot;Comfortaa&quot;;
+	background-color: rgb(61, 56, 70);
+	color:rgb(255,255,255);
+	border-radius: 35%;
+}
+QPushButton:pressed{
+	background-color:rgb(125,125,125);
+}
+QPushButton:hover{
+	background-color:rgb(125,125,125);
+}</string>
+        </property>
+        <property name="text">
+         <string>+</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="QPushButton" name="buttonMinus">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	font: 25 25pt &quot;Comfortaa&quot;;
+	background-color: rgb(61, 56, 70);
+	color:rgb(255,255,255);
+	border-radius: 35%;
+}
+QPushButton:pressed{
+	background-color:rgb(125,125,125);
+}
+QPushButton:hover{
+	background-color:rgb(125,125,125);
+}</string>
+        </property>
+        <property name="text">
+         <string>−</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+       <widget class="QPushButton" name="buttonDEL">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>101</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	font: 25 25pt &quot;Comfortaa&quot;;
+	background-color: rgb(61, 56, 70);
+	color:rgb(255,255,255);
+	border-radius: 35%;
+}
+QPushButton:pressed{
+	background-color:rgb(125,125,125);
+}
+QPushButton:hover{
+	background-color:rgb(125,125,125);
+}</string>
+        </property>
+        <property name="text">
+         <string>DEL</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="labelNumbers">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>419</width>
+          <height>109</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>419</width>
+          <height>109</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Comfortaa</family>
+          <pointsize>40</pointsize>
+          <weight>3</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(61, 56, 70);
+font: 25 40pt &quot;Comfortaa&quot;;
+border-radius: 54%
+</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <property name="margin">
+         <number>10</number>
+        </property>
+        <property name="indent">
+         <number>10</number>
+        </property>
+        <property name="buddy">
+         <cstring>labelNumbers</cstring>
         </property>
        </widget>
       </item>
@@ -997,30 +988,12 @@ QPushButton:hover{
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>510</width>
+     <width>440</width>
      <height>24</height>
     </rect>
    </property>
   </widget>
  </widget>
- <tabstops>
-  <tabstop>button_1</tabstop>
-  <tabstop>button_2</tabstop>
-  <tabstop>button_3</tabstop>
-  <tabstop>button_4</tabstop>
-  <tabstop>button_5</tabstop>
-  <tabstop>button_6</tabstop>
-  <tabstop>button_7</tabstop>
-  <tabstop>buttonC</tabstop>
-  <tabstop>button_8</tabstop>
-  <tabstop>buttonHelp</tabstop>
-  <tabstop>buttonDiv</tabstop>
-  <tabstop>buttonMult</tabstop>
-  <tabstop>button_9</tabstop>
-  <tabstop>buttonPlus</tabstop>
-  <tabstop>buttonMinus</tabstop>
-  <tabstop>buttonDEL</tabstop>
- </tabstops>
  <resources/>
  <connections/>
 </ui>
