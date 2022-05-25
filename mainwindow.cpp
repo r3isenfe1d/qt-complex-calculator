@@ -2,7 +2,6 @@
 #include "ui_mainwindow.h"
 #include "QMessageBox"
 
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -155,7 +154,6 @@ void MainWindow::onPlusMinusClicked()
         ui->buttonPlus->setEnabled(false);
         ui->buttonMinus->setEnabled(false);
     }
-
 }
 
 void MainWindow::onMultiDivClicked()
@@ -172,101 +170,57 @@ void MainWindow::onMultiDivClicked()
     ui->button_i->setEnabled(true);
 }
 
-void MainWindow::multiplication()
-{
-    QString result = "";
-    double tmpReal = (num_1.real.toDouble() * num_2.real.toDouble()) - (num_1.imag.replace("i", "").toDouble() * (num_2.imag.replace("i", "").toDouble()));
-    double tmpImag = num_1.real.toDouble() * num_2.imag.replace("i", "").toDouble() + num_2.real.toDouble() * num_1.imag.replace("i", "").toDouble();
-    result = QString::number(tmpReal, 'f', 2) + (tmpImag < 0 ? "" : "+") + QString::number(tmpImag, 'f', 2) + "i";
-    ui->labelNumbers->setText(result);
-}
-
-void MainWindow::division()
-{
-    double real_1 = num_1.real.toDouble();
-    double real_2 = num_2.real.toDouble();
-    double imag_1 = num_1.imag.replace("i", "").toDouble();
-    double imag_2 = num_2.imag.replace("i", "").toDouble();
-
-    if (real_2 == 0 && imag_2 == 0)
-    {
-        QMessageBox::information(this, "Math Error", "WARNING: division by 0 is not possible!");
-        onCclicked();
-    }
-    else
-    {
-        QString result = "";
-        double tmpReal = ((real_1 * real_2) + (imag_1 * imag_2)) / ((real_2 * real_2) + (imag_2 * imag_2));
-        double tmpImag = ((real_2 * imag_1) - (real_1 * imag_2)) / ((real_2 * real_2) + (imag_2 * imag_2));
-        result = QString::number(tmpReal, 'f', 2) + (tmpImag < 0 ? "" : "+") + QString::number(tmpImag, 'f', 2) + "i";
-        ui->labelNumbers->setText(result);
-    }
-}
-
 void MainWindow::addition()
 {
-    QString result = QString::number(num_1.real.toDouble() + num_2.real.toDouble(), 'f', 2);
-    double tmpImag = num_1.imag.replace("i", "").toDouble() + num_2.imag.replace("i", "").toDouble();
-    result += (tmpImag < 0 ? "" : "+") + QString::number(tmpImag, 'f', 2) + "i";
-    ui->labelNumbers->setText(result);
+
+    QString str = QString::fromStdString((num_1 + num_2).createStringResult());
+    ui->labelNumbers->setText(str);
 }
 
 void MainWindow::substitution()
 {
-    QString result = QString::number(num_1.real.toDouble() - num_2.real.toDouble(), 'f', 2);
-    double tmpImag = num_1.imag.replace("i", "").toDouble() - num_2.imag.replace("i", "").toDouble();
-    result += (tmpImag < 0 ? "" : "+") + QString::number(tmpImag, 'f', 2) + "i";
-    ui->labelNumbers->setText(result);
+    QString str = QString::fromStdString((num_1 - num_2).createStringResult());
+    ui->labelNumbers->setText(str);
+}
+
+void MainWindow::multiplication()
+{
+    QString str = QString::fromStdString((num_1 * num_2).createStringResult());
+    ui->labelNumbers->setText(str);
+}
+
+void MainWindow::division()
+{
+    if (num_2.getReal() == 0 && num_2.getImag() == 0)
+    {
+        QMessageBox::critical(this, "Math Error", "WARNING: division by 0 is not possible!");
+        onCclicked();
+    }
+    else
+    {
+        QString str = QString::fromStdString((num_1 / num_2).createStringResult());
+        ui->labelNumbers->setText(str);
+    }
 }
 
 void MainWindow::writeFirstNumber()
 {
     ui->buttonDot->setEnabled(true);
 
-    QString num = ui->labelNumbers->text();
-
-    if (num.contains("+i") || num.contains("−i"))
-    {
-        num.insert(num.size() - 1, '1');
-    }
-
-    QStringList list = num.split(QRegExp("[+|−]"));
-
-    if (list[0].contains("i"))
-    {
-        num_1.imag = list[0];
-        num_1.real = num.replace(list[0], "0");
-    }
-    else
-    {
-        num_1.real = list[0];
-        num.remove(0, list[0].size());
-        num_1.imag = num;
-    }
+    QString qstr = ui->labelNumbers->text();
+    string str = qstr.toStdString();
+    ComplexNumber num(str);
+    num_1 = num;
 }
 
 void MainWindow::writeSecondNumber()
 {
-    QString num = ui->labelNumbers->text();
+    ui->buttonDot->setEnabled(true);
 
-    if (num.contains("+i") || num.contains("−i"))
-    {
-        num.insert(num.size() - 1, '1');
-    }
-
-    QStringList list = num.split(QRegExp("[+|−]"));
-
-    if (list[0].contains("i"))
-    {
-        num_2.imag = list[0];
-        num_2.real = num.replace(list[0], "0");
-    }
-    else
-    {
-        num_2.real = list[0];
-        num.remove(0, list[0].count());
-        num_2.imag = num;
-    }
+    QString qstr = ui->labelNumbers->text();
+    string str = qstr.toStdString();
+    ComplexNumber num(str);
+    num_2 = num;
 }
 
 void MainWindow::onEqualClicked()
@@ -279,7 +233,7 @@ void MainWindow::onEqualClicked()
     {
         MainWindow::addition();
     }
-    else if (operation == "−")
+    else if (operation == "-")
     {
         MainWindow::substitution();
     }
@@ -296,16 +250,18 @@ void MainWindow::onEqualClicked()
 void MainWindow::onCclicked()
 {
     ui->labelNumbers->setText("0");
-    this->num_1.real.clear();
-    this->num_1.imag.clear();
-    this->num_2.real.clear();
-    this->num_2.imag.clear();
+    this->num_1.setReal("0");
+    this->num_1.setImag("0");
+    this->num_2.setReal("0");
+    this->num_2.setImag("0");
     this->operation.clear();
 
     ui->buttonDot->setEnabled(true);
     ui->buttonDiv->setEnabled(false);
     ui->buttonMult->setEnabled(false);
     ui->buttonMinus->setEnabled(true);
+    ui->buttonPlus->setEnabled(true);
+
     if (!ui->labelNumbers->text().contains("i"))
     {
         ui->button_i->setEnabled(true);
@@ -318,6 +274,7 @@ void MainWindow::onDotClicked()
 {
     QString str = ui->labelNumbers->text();
     int size = ui->labelNumbers->text().size();
+
     if (str[size - 1] != "+" && str[size - 1] != "−" && numbersLength())
     {
         ui->labelNumbers->setText(ui->labelNumbers->text() + ".");
@@ -337,7 +294,7 @@ void MainWindow::onHelpClicked()
 
 bool MainWindow::numbersLength()
 {
-    if (ui->labelNumbers->text().size() >= 12)
+    if (ui->labelNumbers->text().size() >= 13)
     {
         return false;
     }
