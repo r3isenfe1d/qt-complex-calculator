@@ -5,7 +5,6 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
-#include <regex>
 
 using namespace std;
 
@@ -21,6 +20,8 @@ public:
     ~ComplexNumber();
 
     //set-s and get-s
+    void setReal(double);
+    void setImag(double);
     void setReal(string);
     void setImag(string);
     double getReal();

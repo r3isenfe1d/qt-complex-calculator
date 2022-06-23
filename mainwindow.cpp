@@ -112,10 +112,6 @@ void MainWindow::onDELclicked()
             ui->buttonDot->setEnabled(true);
         }
     }
-    else
-    {
-        ui->buttonDot->setEnabled(false);
-    }
 
     if (!ui->labelNumbers->text().contains("i"))
     {
@@ -147,6 +143,10 @@ void MainWindow::onPlusMinusClicked()
         ui->button_i->setEnabled(true);
         ui->buttonMult->setEnabled(false);
         ui->buttonDiv->setEnabled(false);
+    }
+    else if (ui->labelNumbers->text() == "0" && button->text() == "-")
+    {
+        ui->labelNumbers->setText("-0");
     }
     else if (numbersLength())
     {
@@ -272,14 +272,26 @@ void MainWindow::onCclicked()
 
 void MainWindow::onDotClicked()
 {
-    QString str = ui->labelNumbers->text();
-    int size = ui->labelNumbers->text().size();
+    QString qstr = ui->labelNumbers->text();
 
-    if (str[size - 1] != "+" && str[size - 1] != "−" && numbersLength())
+    if (qstr.contains("+") || qstr.contains("-"))
     {
-        ui->labelNumbers->setText(ui->labelNumbers->text() + ".");
-        ui->buttonDot->setEnabled(false);
+        QStringList list = qstr.split(QRegExp("[+|-]"));
+
+        if (!list[1].contains("."))
+            ui->labelNumbers->setText(ui->labelNumbers->text() + ".");
     }
+    else
+    {
+        if (!qstr.contains("."))
+            ui->labelNumbers->setText(ui->labelNumbers->text() + ".");
+    }
+
+    ui->buttonPlus->setEnabled(false);
+    ui->buttonMinus->setEnabled(false);
+    ui->buttonMult->setEnabled(false);
+    ui->buttonDiv->setEnabled(false);
+    ui->buttonEqual->setEnabled(false);
 }
 
 void MainWindow::onHelpClicked()
@@ -299,46 +311,4 @@ bool MainWindow::numbersLength()
         return false;
     }
     return true;
-}
-
-void MainWindow::blockAllButtons()
-{
-    ui->buttonDiv->setEnabled(false);
-    ui->buttonMult->setEnabled(false);
-    ui->buttonPlus->setEnabled(false);
-    ui->buttonMinus->setEnabled(false);
-    ui->buttonEqual->setEnabled(false);
-    ui->buttonDot->setEnabled(false);
-    ui->button_0->setEnabled(false);
-    ui->button_1->setEnabled(false);
-    ui->button_2->setEnabled(false);
-    ui->button_3->setEnabled(false);
-    ui->button_4->setEnabled(false);
-    ui->button_5->setEnabled(false);
-    ui->button_6->setEnabled(false);
-    ui->button_7->setEnabled(false);
-    ui->button_8->setEnabled(false);
-    ui->button_9->setEnabled(false);
-    ui->button_i->setEnabled(false);
-}
-
-void MainWindow::acceptAllButtons()
-{
-    ui->buttonDiv->setEnabled(true);
-    ui->buttonMult->setEnabled(true);
-    ui->buttonPlus->setEnabled(true);
-    ui->buttonMinus->setEnabled(true);
-    ui->buttonEqual->setEnabled(true);
-    ui->buttonDot->setEnabled(true);
-    ui->button_0->setEnabled(true);
-    ui->button_1->setEnabled(true);
-    ui->button_2->setEnabled(true);
-    ui->button_3->setEnabled(true);
-    ui->button_4->setEnabled(true);
-    ui->button_5->setEnabled(true);
-    ui->button_6->setEnabled(true);
-    ui->button_7->setEnabled(true);
-    ui->button_8->setEnabled(true);
-    ui->button_9->setEnabled(true);
-    ui->button_i->setEnabled(true);
 }

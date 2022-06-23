@@ -2,3 +2,5 @@
 moc*
 Makefile
 Calculator*
+.qmake.stash
+.qtc_clangd

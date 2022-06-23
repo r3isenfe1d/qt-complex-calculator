@@ -9,6 +9,13 @@ ComplexNumber::ComplexNumber()
     this->imag = 0;
 }
 
+//copy constructor
+ComplexNumber::ComplexNumber(const ComplexNumber &other)
+{
+    this->real = other.real;
+    this->imag = other.imag;
+}
+
 //parameterized constructor
 ComplexNumber::ComplexNumber(string& str)
 {
@@ -19,6 +26,8 @@ ComplexNumber::ComplexNumber(string& str)
     this->real = list[0];
     this->imag = list[1];
 }
+
+
 
 ComplexNumber::ComplexNumber(string& strReal, string& strImag)
 {
@@ -41,15 +50,18 @@ ComplexNumber::ComplexNumber(double& r, double& i)
     this->imag = i;
 }
 
-//copy constructor
-ComplexNumber::ComplexNumber(const ComplexNumber& other)
+//destructor
+ComplexNumber::~ComplexNumber() {}
+
+void ComplexNumber::setReal(double r)
 {
-    this->real = other.real;
-    this->imag = other.imag;
+    this->real = r;
 }
 
-//destructor
-ComplexNumber::~ComplexNumber() {};
+void ComplexNumber::setImag(double i)
+{
+   this->imag = i;
+};
 
 void ComplexNumber::setReal(string str)
 {
@@ -130,18 +142,24 @@ ComplexNumber ComplexNumber::operator / (ComplexNumber& other)
 
 string ComplexNumber::createStringResult()
 {
+    this->setReal(round(this->getReal() * 100) / 100);
+    this->setImag(round(this->getImag() * 100) / 100);
+
     string str;
+
     str = to_string(this->getReal());
     str.erase(str.size() - 4, str.size() - 1);
     str += (this->getImag() < 0 ? "" : "+");
     str += to_string(this->getImag());
     str.erase(str.size() - 4, str.size() - 1);
     str += 'i';
+
     return str;
 }
 
 vector<double> ComplexNumber::parce(string str)
 {
+    vector<string> list;
     string real, imag;
     bool sign = false;
     char ch;
@@ -152,39 +170,54 @@ vector<double> ComplexNumber::parce(string str)
         str = str.substr(1, str.size());
     }
 
-    if (str.find('+') != string::npos)
+    if (str.find('-') != string::npos)
+    {
+        ch = '-';
+        list.push_back(str.substr(0, str.find(ch)));
+        list.push_back(str.substr(str.find(ch) + 1));
+    }
+    else if (str.find('+') != string::npos)
     {
         ch = '+';
+        list.push_back(str.substr(0, str.find(ch)));
+        list.push_back(str.substr(str.find(ch) + 1));
     }
     else
     {
-        ch = '-';
+        ch = ' ';
+        list.push_back(str);
     }
 
-    string list[2] = {str.substr(0, str.find(ch)), str.substr(str.find(ch) + 1)};
+
+    list[list.size() - 1] = list[list.size() - 1] == "i" ? "1" : list[list.size() - 1];
 
     if (list[0].find('i') != string::npos)
     {
         imag = list[0];
+
         if (sign)
-        {
             imag = '-' + imag;
-        }
+
         real = "0";
+    }
+    else if (list.size() == 2)
+    {
+        real = list[0];
+
+        if (sign)
+            real = '-' + real;
+
+        imag = ch + list[list.size() - 1];
     }
     else
     {
         real = list[0];
-        if (sign)
-        {
-            real = '-' + real;
-        }
-        str = str.substr(list[0].size());
-        imag = str;
-    }
 
-    real = real == "" ? "0" : real;
-    imag = imag == "" ? "0" : imag;
+        if (sign)
+            real = '-' + real;
+
+        imag = "0";
+    }
 
     vector<double> arr;
     arr.push_back(stod(real));
