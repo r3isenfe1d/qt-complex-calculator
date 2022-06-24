@@ -27,8 +27,6 @@ ComplexNumber::ComplexNumber(string& str)
     this->imag = list[1];
 }
 
-
-
 ComplexNumber::ComplexNumber(string& strReal, string& strImag)
 {
     if (strReal.empty())

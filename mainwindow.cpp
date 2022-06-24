@@ -53,9 +53,7 @@ void MainWindow::onNumClicked()
         }
     }
     else if (!ui->labelNumbers->text().contains("i") && numbersLength())
-    {
         ui->labelNumbers->setText(ui->labelNumbers->text() + button->text());
-    }
 
     if (ui->labelNumbers->text() != "0" && ui->labelNumbers->text() != "−0" && numbersLength())
     {
@@ -67,13 +65,9 @@ void MainWindow::onNumClicked()
 void MainWindow::onIclicked()
 {
     if (!ui->labelNumbers->text().contains("i") && numbersLength())
-    {
         ui->labelNumbers->setText(ui->labelNumbers->text() + "i");
-    }
     else if (ui->labelNumbers->text() == "0" && numbersLength())
-    {
         ui->labelNumbers->setText("i");
-    }
 
     ui->button_i->setEnabled(false);
     ui->buttonDot->setEnabled(false);
@@ -87,11 +81,11 @@ void MainWindow::onIclicked()
 void MainWindow::onDELclicked()
 {
     QString str = ui->labelNumbers->text();
+
     str.chop(1);
     if (str.isEmpty())
-    {
         str = "0";
-    }
+
     ui->labelNumbers->setText(str);
 
     if (!ui->labelNumbers->text().contains("i"))
@@ -99,35 +93,23 @@ void MainWindow::onDELclicked()
         ui->buttonEqual->setEnabled(false);
         ui->buttonDiv->setEnabled(false);
         ui->buttonMult->setEnabled(false);
-    }
-
-    if (!ui->labelNumbers->text().contains("."))
-    {
-        ui->buttonDot->setEnabled(true);
-    }
-    else if (ui->labelNumbers->text().contains("+") || ui->labelNumbers->text().contains("−"))
-    {
-        if (ui->labelNumbers->text().count(".") < 2)
-        {
-            ui->buttonDot->setEnabled(true);
-        }
-    }
-
-    if (!ui->labelNumbers->text().contains("i"))
-    {
         ui->button_i->setEnabled(true);
     }
     else
-    {
         ui->button_i->setEnabled(false);
-    }
 
-    if (!ui->labelNumbers->text().contains("+|−"))
+    if (!ui->labelNumbers->text().contains("."))
+        ui->buttonDot->setEnabled(true);
+    else if (ui->labelNumbers->text().contains("+") || ui->labelNumbers->text().contains("−"))
+    {
+        if (ui->labelNumbers->text().count(".") < 2)
+            ui->buttonDot->setEnabled(true);
+    }
+    if (!ui->labelNumbers->text().contains("+") || !ui->labelNumbers->text().contains("−"))
     {
         ui->buttonPlus->setEnabled(true);
         ui->buttonMinus->setEnabled(true);
     }
-
 }
 
 void MainWindow::onPlusMinusClicked()
@@ -145,10 +127,9 @@ void MainWindow::onPlusMinusClicked()
         ui->buttonDiv->setEnabled(false);
     }
     else if (ui->labelNumbers->text() == "0" && button->text() == "-")
-    {
         ui->labelNumbers->setText("-0");
-    }
-    else if (numbersLength())
+
+    else if (!ui->labelNumbers->text().contains("+") && !ui->labelNumbers->text().contains("-") && numbersLength())
     {
         ui->labelNumbers->setText(ui->labelNumbers->text() + button->text());
         ui->buttonPlus->setEnabled(false);
@@ -230,21 +211,13 @@ void MainWindow::onEqualClicked()
     writeSecondNumber();
 
     if (operation == "+")
-    {
         MainWindow::addition();
-    }
     else if (operation == "-")
-    {
         MainWindow::substitution();
-    }
     else if(operation == "×")
-    {
         MainWindow::multiplication();
-    }
     else if(operation == "÷")
-    {
         MainWindow::division();
-    }
 }
 
 void MainWindow::onCclicked()
@@ -307,8 +280,7 @@ void MainWindow::onHelpClicked()
 bool MainWindow::numbersLength()
 {
     if (ui->labelNumbers->text().size() >= 13)
-    {
         return false;
-    }
+
     return true;
 }
