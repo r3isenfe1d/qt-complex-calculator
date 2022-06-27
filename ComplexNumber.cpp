@@ -9,13 +9,6 @@ ComplexNumber::ComplexNumber()
     this->imag = 0;
 }
 
-//copy constructor
-ComplexNumber::ComplexNumber(const ComplexNumber &other)
-{
-    this->real = other.real;
-    this->imag = other.imag;
-}
-
 //parameterized constructor
 ComplexNumber::ComplexNumber(string& str)
 {
@@ -26,27 +19,6 @@ ComplexNumber::ComplexNumber(string& str)
     this->real = list[0];
     this->imag = list[1];
 }
-
-ComplexNumber::ComplexNumber(string& strReal, string& strImag)
-{
-    if (strReal.empty())
-        strReal = "0";
-    this->real = stod(strReal);
-    //setReal();
-
-    if (strImag.empty())
-        strImag = "0";
-    this->imag = stod(strImag);
-}
-
-ComplexNumber::ComplexNumber(double& r, double& i)
-{
-    this->real = r;
-    this->imag = i;
-}
-
-//destructor
-ComplexNumber::~ComplexNumber() {}
 
 void ComplexNumber::setReal(double r)
 {
@@ -82,13 +54,6 @@ double ComplexNumber::getImag()
     return this->imag;
 }
 
-//ComplexNumber& ComplexNumber::operator = (ComplexNumber other)
-//{
-//    this->real = other.real;
-//    this->imag = other.imag;
-//    return *this;
-//}
-
 ComplexNumber ComplexNumber::operator + (ComplexNumber& other)
 {
     ComplexNumber result;
@@ -100,16 +65,16 @@ ComplexNumber ComplexNumber::operator + (ComplexNumber& other)
 ComplexNumber ComplexNumber::operator - (ComplexNumber& other)
 {
     ComplexNumber result;
-    result.real = this->getReal() - other.getReal();
-    result.imag = this->getImag() - other.getImag();
+    result.real = this->real - other.real;
+    result.imag = this->imag - other.imag;
     return result;
 }
 
 ComplexNumber ComplexNumber::operator * (ComplexNumber& other)
 {
     ComplexNumber result;
-    result.real = this->getReal() * other.getReal() - this->getImag() * other.getImag();
-    result.imag = this->getReal() * other.getImag() + other.getReal() * this->getImag();
+    result.real = this->real * other.real - this->imag * other.imag;
+    result.imag = this->real * other.imag + other.real * this->imag;
     return result;
 }
 
@@ -120,31 +85,31 @@ ComplexNumber ComplexNumber::operator / (ComplexNumber& other)
 
     ComplexNumber result;
     result.real =
-            ((this->getReal() * other.getReal()) +
-             (this->getImag() * other.getImag())) /
-            ((other.getReal() * other.getReal()) +
-             (other.getImag() * other.getImag()));
+            ((this->real * other.real) +
+             (this->imag * other.imag)) /
+            ((other.real * other.real) +
+             (other.imag * other.imag));
 
     result.imag =
-            ((other.getReal() * this->getImag()) -
-             (this->getReal() * other.getImag())) /
-            ((other.getReal() * other.getReal()) +
-             (other.getImag() * other.getImag()));
+            ((other.real * this->imag) -
+             (this->real * other.imag)) /
+            ((other.real * other.real) +
+             (other.imag * other.imag));
 
     return result;
 }
 
 string ComplexNumber::createStringResult()
 {
-    this->setReal(round(this->getReal() * 100) / 100);
-    this->setImag(round(this->getImag() * 100) / 100);
+    this->real = round(this->real * 100) / 100;
+    this->imag = round(this->imag * 100) / 100;
 
     string str;
 
-    str = to_string(this->getReal());
+    str = to_string(this->real);
     str.erase(str.size() - 4, str.size() - 1);
-    str += (this->getImag() < 0 ? "" : "+");
-    str += to_string(this->getImag());
+    str += (this->imag < 0 ? "" : "+");
+    str += to_string(this->imag);
     str.erase(str.size() - 4, str.size() - 1);
     str += 'i';
 

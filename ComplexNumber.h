@@ -13,11 +13,7 @@ class ComplexNumber
 public:
     //constructors
     ComplexNumber();
-    ComplexNumber(const ComplexNumber&);
     ComplexNumber(string&);
-    ComplexNumber(string&, string&);
-    ComplexNumber(double&, double&);
-    ~ComplexNumber();
 
     //setters and getters
     void setReal(double);
@@ -28,7 +24,6 @@ public:
     double getImag();
 
     //overload operators
-//    ComplexNumber& operator = (ComplexNumber);
     ComplexNumber operator + (ComplexNumber&);
     ComplexNumber operator - (ComplexNumber&);
     ComplexNumber operator * (ComplexNumber&);
