@@ -12,9 +12,7 @@ ComplexNumber::ComplexNumber()
 //parameterized constructor
 ComplexNumber::ComplexNumber(string& str)
 {
-    vector<double> list;
-
-    list = parce(str);
+    vector<double> list = parce(str);
 
     this->real = list[0];
     this->imag = list[1];
