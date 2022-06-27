@@ -44,9 +44,6 @@ private:
     void writeFirstNumber();
     void writeSecondNumber();
 
-    void blockAllButtons();
-    void acceptAllButtons();
-
     bool numbersLength();
 };
 #endif // MAINWINDOW_H

@@ -36,9 +36,9 @@ private:
     double real;
     double imag;
 
-    vector<double> parce(string);
-    void CreatRealAndImag(vector<string>&, string&, string&, bool, char&);
-    void AnalyzeSign(vector<string>&, string&, char&);
+    vector<double> parse(string);
+    void createRealAndImag(vector<string>&, string&, string&, bool, char&);
+    void analyzeSign(vector<string>&, string&, char&);
 };
 
 #endif // COMPLEXNUMBER_H

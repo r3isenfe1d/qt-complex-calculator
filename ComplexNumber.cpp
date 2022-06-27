@@ -12,7 +12,7 @@ ComplexNumber::ComplexNumber()
 //parameterized constructor
 ComplexNumber::ComplexNumber(string& str)
 {
-    vector<double> list = parce(str);
+    vector<double> list = parse(str);
 
     this->real = list[0];
     this->imag = list[1];
@@ -114,26 +114,27 @@ string ComplexNumber::createStringResult()
     return str;
 }
 
-vector<double> ComplexNumber::parce(string str)
+vector<double> ComplexNumber::parse(string str)
 {
     vector<string> list;
     string real, imag;
     bool sign = false;
     char ch;
+
     if (str[0] == '-')
     {
         sign = true;
         str = str.substr(1, str.size());
     }
 
-    AnalyzeSign(list, str, ch);
+    analyzeSign(list, str, ch);
 
     if (list[list.size() - 1] == "i")
         list[list.size() - 1] = "1";
     if (list[list.size() - 1] == ".i")
         list[list.size() - 1] = "0.1";
 
-    CreatRealAndImag(list, real, imag, sign, ch);
+    createRealAndImag(list, real, imag, sign, ch);
 
     vector<double> arr;
     arr.push_back(stod(real));
@@ -141,7 +142,7 @@ vector<double> ComplexNumber::parce(string str)
     return arr;
 }
 
-void ComplexNumber::AnalyzeSign(vector<string>& list, string& str, char& ch)
+void ComplexNumber::analyzeSign(vector<string>& list, string& str, char& ch)
 {
     if (str.find('-') != string::npos)
     {
@@ -162,7 +163,7 @@ void ComplexNumber::AnalyzeSign(vector<string>& list, string& str, char& ch)
     }
 }
 
-void ComplexNumber::CreatRealAndImag(vector<string>& list, string& real, string& imag, bool sign, char& ch)
+void ComplexNumber::createRealAndImag(vector<string>& list, string& real, string& imag, bool sign, char& ch)
 {
     if (list[0].find('i') != string::npos)
     {
