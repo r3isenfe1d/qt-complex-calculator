@@ -71,6 +71,7 @@ void MainWindow::onIclicked()
 
     ui->button_i->setEnabled(false);
     ui->buttonDot->setEnabled(false);
+
     ui->buttonMult->setEnabled(true);
     ui->buttonDiv->setEnabled(true);
     ui->buttonPlus->setEnabled(true);
@@ -91,8 +92,6 @@ void MainWindow::onDELclicked()
     if (!ui->labelNumbers->text().contains("i"))
     {
         ui->buttonEqual->setEnabled(false);
-        ui->buttonDiv->setEnabled(false);
-        ui->buttonMult->setEnabled(false);
         ui->button_i->setEnabled(true);
     }
     else
@@ -115,25 +114,33 @@ void MainWindow::onDELclicked()
 void MainWindow::onPlusMinusClicked()
 {
     QPushButton *button = (QPushButton *) sender();
+    QString qstr = ui->labelNumbers->text();
 
-    if (ui->labelNumbers->text().contains("i"))
+    if (qstr.contains("i"))
     {
         writeFirstNumber();
         operation = button->text();
         ui->labelNumbers->setText("0");
         ui->buttonEqual->setEnabled(true);
         ui->button_i->setEnabled(true);
-        ui->buttonMult->setEnabled(false);
-        ui->buttonDiv->setEnabled(false);
     }
-    else if (ui->labelNumbers->text() == "0" && button->text() == "-")
+    else if (qstr == "0" && button->text() == "-")
         ui->labelNumbers->setText("-0");
 
-    else if (!ui->labelNumbers->text().contains("+") && !ui->labelNumbers->text().contains("-") && numbersLength())
+    else if (button->text() == "+" && numbersLength())
     {
-        ui->labelNumbers->setText(ui->labelNumbers->text() + button->text());
-        ui->buttonPlus->setEnabled(false);
-        ui->buttonMinus->setEnabled(false);
+        if (qstr[0] == '-')
+            qstr.remove(0, 1);
+        if (!qstr.contains("+") && !qstr.contains("-"))
+            ui->labelNumbers->setText(ui->labelNumbers->text() + button->text());
+    }
+
+    else if (button->text() == "-" && numbersLength())
+    {
+        if (qstr[0] == '-')
+            qstr.remove(0, 1);
+        if (!qstr.contains("+") && !qstr.contains("-"))
+             ui->labelNumbers->setText(ui->labelNumbers->text() + button->text());
     }
 }
 
@@ -172,15 +179,15 @@ void MainWindow::multiplication()
 
 void MainWindow::division()
 {
-    if (num_2.getReal() == 0 && num_2.getImag() == 0)
-    {
-        QMessageBox::critical(this, "Math Error", "WARNING: division by 0 is not possible!");
-        onCclicked();
-    }
-    else
+    try
     {
         QString str = QString::fromStdString((num_1 / num_2).createStringResult());
         ui->labelNumbers->setText(str);
+    }
+    catch (char const* str)
+    {
+        QMessageBox::critical(this, "Math Error", QString::fromStdString(str));
+        onCclicked();
     }
 }
 
@@ -246,6 +253,9 @@ void MainWindow::onCclicked()
 void MainWindow::onDotClicked()
 {
     QString qstr = ui->labelNumbers->text();
+
+    if (qstr[0] == '-')
+        qstr.remove(0, 1);
 
     if (qstr.contains("+") || qstr.contains("-"))
     {

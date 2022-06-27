@@ -19,7 +19,7 @@ public:
     ComplexNumber(double&, double&);
     ~ComplexNumber();
 
-    //set-s and get-s
+    //setters and getters
     void setReal(double);
     void setImag(double);
     void setReal(string);
@@ -28,7 +28,7 @@ public:
     double getImag();
 
     //overload operators
-    ComplexNumber& operator = (ComplexNumber);
+//    ComplexNumber& operator = (ComplexNumber);
     ComplexNumber operator + (ComplexNumber&);
     ComplexNumber operator - (ComplexNumber&);
     ComplexNumber operator * (ComplexNumber&);
@@ -36,11 +36,14 @@ public:
 
     //secondary methods
     string createStringResult();
-    vector<double> parce(string);
 
 private:
     double real;
     double imag;
+
+    vector<double> parce(string);
+    void CreatRealAndImag(vector<string>&, string&, string&, bool, char&);
+    void AnalyzeSign(vector<string>&, string&, char&);
 };
 
 #endif // COMPLEXNUMBER_H

@@ -30,15 +30,12 @@ ComplexNumber::ComplexNumber(string& str)
 ComplexNumber::ComplexNumber(string& strReal, string& strImag)
 {
     if (strReal.empty())
-    {
         strReal = "0";
-    }
     this->real = stod(strReal);
+    //setReal();
 
     if (strImag.empty())
-    {
         strImag = "0";
-    }
     this->imag = stod(strImag);
 }
 
@@ -58,24 +55,20 @@ void ComplexNumber::setReal(double r)
 
 void ComplexNumber::setImag(double i)
 {
-   this->imag = i;
-};
+    this->imag = i;
+}
 
 void ComplexNumber::setReal(string str)
 {
     if (str.empty())
-    {
         str = "0";
-    }
     this->real = stod(str);
 }
 
 void ComplexNumber::setImag(string str)
 {
     if (str.empty())
-    {
         str = "0";
-    }
     this->imag = stod(str);
 }
 
@@ -89,18 +82,18 @@ double ComplexNumber::getImag()
     return this->imag;
 }
 
-ComplexNumber& ComplexNumber::operator = (ComplexNumber other)
-{
-    this->real = other.real;
-    this->imag = other.imag;
-    return *this;
-}
+//ComplexNumber& ComplexNumber::operator = (ComplexNumber other)
+//{
+//    this->real = other.real;
+//    this->imag = other.imag;
+//    return *this;
+//}
 
 ComplexNumber ComplexNumber::operator + (ComplexNumber& other)
 {
     ComplexNumber result;
-    result.real = this->getReal() + other.getReal();
-    result.imag = this->getImag() + other.getImag();
+    result.real = this->real + other.real;
+    result.imag = this->real + other.real;
     return result;
 }
 
@@ -122,6 +115,9 @@ ComplexNumber ComplexNumber::operator * (ComplexNumber& other)
 
 ComplexNumber ComplexNumber::operator / (ComplexNumber& other)
 {
+    if (other.real == 0.0 && other.imag == 0.0)
+        throw "WARNING: division by 0 is not possible!";
+
     ComplexNumber result;
     result.real =
             ((this->getReal() * other.getReal()) +
@@ -161,13 +157,29 @@ vector<double> ComplexNumber::parce(string str)
     string real, imag;
     bool sign = false;
     char ch;
-
     if (str[0] == '-')
     {
         sign = true;
         str = str.substr(1, str.size());
     }
 
+    AnalyzeSign(list, str, ch);
+
+    if (list[list.size() - 1] == "i")
+        list[list.size() - 1] = "1";
+    if (list[list.size() - 1] == ".i")
+        list[list.size() - 1] = "0.1";
+
+    CreatRealAndImag(list, real, imag, sign, ch);
+
+    vector<double> arr;
+    arr.push_back(stod(real));
+    arr.push_back(stod(imag));
+    return arr;
+}
+
+void ComplexNumber::AnalyzeSign(vector<string>& list, string& str, char& ch)
+{
     if (str.find('-') != string::npos)
     {
         ch = '-';
@@ -185,41 +197,29 @@ vector<double> ComplexNumber::parce(string str)
         ch = ' ';
         list.push_back(str);
     }
+}
 
-
-    list[list.size() - 1] = list[list.size() - 1] == "i" ? "1" : list[list.size() - 1];
-
+void ComplexNumber::CreatRealAndImag(vector<string>& list, string& real, string& imag, bool sign, char& ch)
+{
     if (list[0].find('i') != string::npos)
     {
         imag = list[0];
-
         if (sign)
             imag = '-' + imag;
-
         real = "0";
     }
     else if (list.size() == 2)
     {
         real = list[0];
-
         if (sign)
             real = '-' + real;
-
         imag = ch + list[list.size() - 1];
     }
     else
     {
         real = list[0];
-
         if (sign)
             real = '-' + real;
-
         imag = "0";
     }
-
-    vector<double> arr;
-    arr.push_back(stod(real));
-    arr.push_back(stod(imag));
-
-    return arr;
 }
